@@ -11,6 +11,10 @@ public class UserService {
 	@Autowired 
 	private UserRepository UR;
 	
+	public Iterable<User> getUsers() {
+		return UR.findAll();
+	}
+	
 	public Optional<User> getUserById(String id) {
 		return UR.findById(id);
 	}
