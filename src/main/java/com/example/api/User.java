@@ -14,7 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import antlr.collections.List;
 import lombok.Data;
 
 @Data
@@ -25,6 +24,7 @@ public class User {
 	
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
@@ -44,7 +44,20 @@ public class User {
 	@Column(name="password")
 	private String password;
 	
+	@OneToMany(
+			   cascade = CascadeType.ALL, 
+			   orphanRemoval = true, 
+			   fetch = FetchType.EAGER)
+				@JoinColumn(name = "id_user")
+	ArrayList<Role> roles = new ArrayList<>();
 
+	public ArrayList<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(ArrayList<Role> roles) {
+		this.roles = roles;
+	}
 
 	public String getName() {
 		return name;

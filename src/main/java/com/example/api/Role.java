@@ -21,11 +21,16 @@ public class Role {
     @Column(name="id_role")
 	private int id;
 	
+    @Column(name="id_user")
+    private int id_user;
     
-    public Role(int id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
+	public int getId_user() {
+		return id_user;
+	}
+
+
+	public void setId_user(int id_user) {
+		this.id_user = id_user;
 	}
 
 

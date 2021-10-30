@@ -22,30 +22,45 @@ public class ApiApplication implements CommandLineRunner {
 	
 		System.out.println("hey");
 		
+		//show existing users 
 		Iterable<User> users = US.getUsers();
 
 		users.forEach(user -> System.out.println(user.getName()+"....."+user.getAge()+"....."+user.getVille()+"....."+user.getEmail()));
 		
-		User user1 = new User();
 		
-		user1.setId(3);
+		
+		
+		Optional<User> user= US.getUserById("1");
+		User user1 = user.get();
+		
+		System.out.println(user1.getName());	
+		
+		user1.getRoles().forEach(
+				role -> System.out.println(role.getName()));
+		 
+		
+		//add a new user
+		//User user1 = new User();
+		/*user1.setId("3");
 		user1.setName("user3");
 		user1.setAge(20);
-		user1.setVille("rabat");
+		user1.setVille("");
 		user1.setEmail("user2@gmail.com");
 		user1.setPassword("098765");
 		
 		User u = new User();
 		u=US.addUser(user1);
 		
-		users = US.getUsers();
+		users = US.getUsers();*/
 		
-		System.out.println("------------la liste des users apres l'ajout---------------");
+		//System.out.println("------------la liste des users apres l'ajout---------------");
 
-		users.forEach(user -> System.out.println(user.getName()+"....."+user.getAge()+"....."+user.getVille()+"....."+user.getEmail()));
+		//users.forEach(user -> System.out.println(user.getName()+"....."+user.getAge()+"....."+user.getVille()+"....."+user.getEmail()));
 		 
 		
 	}
+	
+	
 	
 	
 
