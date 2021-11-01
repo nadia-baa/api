@@ -2,6 +2,7 @@ package com.example.api;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -26,7 +27,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	private int id;
+	private String id;
 	
 	
 	@Column(name="name")
@@ -48,10 +49,10 @@ public class User {
 			   cascade = CascadeType.ALL, 
 			   orphanRemoval = true, 
 			   fetch = FetchType.EAGER)
-				@JoinColumn(name = "id_user")
-	ArrayList<Role> roles = new ArrayList<>();
+				@JoinColumn(name = "id")
+	private List<Role> roles = new ArrayList<>();
 
-	public ArrayList<Role> getRoles() {
+	public List<Role> getRoles() {
 		return roles;
 	}
 
@@ -67,11 +68,11 @@ public class User {
 		this.name = name;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

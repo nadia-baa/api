@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.yaml.snakeyaml.events.Event.ID;
 
 @Service
 public class UserService {
@@ -25,7 +26,9 @@ public class UserService {
 	}
 
 
-	 
+	 public void supprimerUserById(String id) {
+		 UR.deleteById(id);
+	 }
 
 	
 	
