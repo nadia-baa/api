@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" href="styleisc.css">
+    </head>
+
+    <body>
+    <form method="post" th:action="@{/adduser}" th:object="${user} >
+       <div class="container">
+           <h2>créer votre compte</h2>
+         <input type="text" th:field="*{name}" placeholder="nom..." required><br>
+         <input type="number" th:field="*{age}" placeholder="age..." required><br>
+         <input type="text" th:field="*{ville}" placeholder="ville..." required><br>
+         <input type="email" th:field="*{email}" placeholder="email..." required><br>
+         <input type="password" th:field="*{password}" placeholder="password..." required><br>
+         <button>s'inscrire</button>
+       </div>
+    </form>  
+    </body>
+</html>
